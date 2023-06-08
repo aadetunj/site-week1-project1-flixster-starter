@@ -76,11 +76,14 @@ let fakeMoviesAPI = {
 let firstMovie = fakeMoviesAPI.results[0]
 
 function generateCards(movieObject) {
+
+
+
     // create star
-   let star =  document.createElement('span');
- let starContent = document.createTextNode("⭐️")
- star.appendChild(starContent)
- document.body.appendChild(star)
+    let star = document.createElement('span');
+    let starContent = document.createTextNode("⭐️")
+    star.appendChild(starContent)
+    document.body.appendChild(star)
 
     // create rating
     let rating = document.createElement('span')
@@ -100,6 +103,34 @@ function generateCards(movieObject) {
     image.src = "https://image.tmdb.org/t/p/w342" + movieObject.poster_path
     document.body.insertBefore(image, averageContainer);
 
+
+    // name 
+    let name = document.createElement('div')
+    name.classList.add('name')
+    name.innerText = movieObject.original_title
+    document.body.insertBefore(name, averageContainer.nextSibling)
+
+    //create movie section 
+    let movie = document.createElement('section');
+    name.classList.add('name')
+
+    movie.appendChild(image)
+    movie.appendChild(averageContainer)
+    movie.appendChild(name)
+    document.body.appendChild(movie)
+
+// now: document.body.appendChild(movie)
+// 
+// want: targetDiv.appendChild(movie)
+//
+ let targetDiv = querySelect(all-movies)
+
+ targetDiv.appendChild(movie)
+   
+
+
+
+
 }
 
-generateCards(firstMovie)
+ generateCards(firstMovie)
