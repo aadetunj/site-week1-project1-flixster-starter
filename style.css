@@ -1,24 +1,60 @@
 
 body {
-    background-color:whitesmoke
+    background-color: rgb(60, 60, 60);}
+
+* {
+    font-family: ProximaNova, Helvetica;
 }
+
+h2{
+    margin-left: 2.25vh;
+    font-size: 1.75rem;
+    color: white;
+}
+
 
 h1 {
     text-align: center;
+    font-size: 4.5rem;
+    font-family: ProximaNova, Helvetica;
+    color: white;
 }
 
  section.movie {
-    background-color: black;
+    
     height: 10cm;
 } 
-
-img {
-    border-radius: 0.2cm;
+.movieCard {
+   margin-bottom: 1.25vh;
+   font-size: 1.1rem;
+   font-family: ProximaNova, Helvetica;
+   font-weight:700;
+   color: white;
+   
 }
 
- /* .allMovies {
-    background-color: green;
-    margin: auto;
-    height: 100cm;
-}  */
+.ratingFont{
+    font-weight:500;
+    margin: 0.1cm;
 
+}
+
+img {
+    border-radius: 0.15cm;
+    width: 30vh;
+}
+
+ .allMovies {
+    background-color: rgb(60, 60, 60);
+    display:inline-flex;
+    flex-wrap:wrap;
+    /* justify-content: left; */
+    justify-content: space-between;
+    margin: 2vh;
+    
+}  
+/* 
+.movie {
+    flex: 1;
+    height: 100px;
+} */
