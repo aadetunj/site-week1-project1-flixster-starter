@@ -7,17 +7,22 @@
     <title>Oriental</title>
 
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>🍿 Flixckser</h1>  
-    <section class = "allMovies"> 
-        <!-- <section class = "movie">
-            <img src =""/>
-            <div class = "average"></div>
-            <span class = "rating"></span>
-            <div class="name"></div>
-        </section> -->
+    
+    <h1>🍿Flixster!</h1>
+    <h2>Now Playing</h2>
+     <section id ='searchBarArea'>
+        <form>
+            <input type="search" id ="search" placeholder="Find Movie..."/>
+            <button id = "submitButton" >Submit</button>
+        </form>
+    </section>
+    <section class = "allMovies" id ="containerMovie"> 
+     
+    </section>
+    <section class ="loadMore-container">
+        <button id = "loadMorebtn" onclick="loadMore()">Load more</button>
     </section>
 </body>
 <script src = "script.js"></script>

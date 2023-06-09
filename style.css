@@ -53,6 +53,24 @@ img {
     margin: 2vh;
     
 }  
+
+
+.loadMore-container{
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    size: 1vh;
+}
+
+#searchBarArea {
+    text-align: center;
+    
+}
+
+
+
+
+
 /* 
 .movie {
     flex: 1;
