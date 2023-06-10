@@ -39,15 +39,15 @@ let page = 1
 moviePage(page);
 
 
-let searchBar = document.getElementById('search')
+let searchBar = document.getElementById('search-input')
 
 function getSearchPage(event){
-  page = 0
+  page = 1
 
   event.preventDefault();
   let searchVal = searchBar.value;
 
-  let newMovieContainer = document.getElementById('containerMovie');
+  let newMovieContainer = document.getElementById('movies-grid');
   newMovieContainer.innerHTML = "";
 
   const options = {
@@ -84,7 +84,9 @@ function generateCards(movieObject) {
     let ratingContent = document.createTextNode("" + movieObject.vote_average)
     rating.appendChild(ratingContent);
     rating.classList.add('ratingFont')
+    rating.classList.add('movie-votes')
     targetDiv.appendChild(rating);
+    
 
     // create avg continaer 
     let averageContainer = document.createElement('div')
@@ -97,18 +99,19 @@ function generateCards(movieObject) {
     let image = document.createElement('img')
     image.src = "https://image.tmdb.org/t/p/w342" + movieObject.poster_path
     targetDiv.insertBefore(image, averageContainer);
-
+    image.classList.add('movie-poster')
 
     // name 
     let name = document.createElement('div')
     name.classList.add('name')
+    name.classList.add('movie-title')
     name.innerText = movieObject.original_title
     targetDiv.insertBefore(name, averageContainer.nextSibling)
 
     // create movie section 
     let movie = document.createElement('section');
     name.classList.add('name')
-    movie.classList.add('movieCard')
+    movie.classList.add('movie-card')
 
     movie.appendChild(image)
     movie.appendChild(averageContainer)
@@ -141,9 +144,12 @@ function loadMore() {
     moviePage(page) 
   }
    
-
 }
 
+function clearSearch(){
+  page = 1
+  moviePage(page)
+}
 
 
 
