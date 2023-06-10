@@ -30,6 +30,10 @@ h1 {
    font-family: ProximaNova, Helvetica;
    font-weight:700;
    color: white;
+   max-width: 642px;
+   margin-left: 1.5vh;
+   margin-right: 1.5vh;
+   
    
 }
 
@@ -39,6 +43,12 @@ h1 {
 
 }
 
+
+.name {
+    max-width: 342px;
+}
+
+
 img {
     border-radius: 0.15cm;
     width: 30vh;
@@ -46,14 +56,12 @@ img {
 
  .allMovies {
     background-color: rgb(60, 60, 60);
-    display:inline-flex;
+    display:flex;
     flex-wrap:wrap;
     /* justify-content: left; */
-    justify-content: space-between;
+    justify-content: center;
     margin: 2vh;
-    
 }  
-
 
 .loadMore-container{
     margin: auto;
@@ -64,8 +72,28 @@ img {
 
 #searchBarArea {
     text-align: center;
+    font-size: rem;
+}
+
+#search{
+    width: 8cm;
+    height: 1.25cm;
+    border-radius: 0.3cm;
+}
+
+#submitButton{
+    width: 3cm;
+    height: 1.25cm;
+    border-radius: 0.3cm;
     
 }
+
+#loadMorebtn{
+    width: 3cm;
+    height: 1.25cm;
+    border-radius: 0.3cm;
+}
+
 
 
 

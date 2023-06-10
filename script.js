@@ -2,10 +2,6 @@ const apiKey = "4648d8f1dd1952103b5b11a07e047f65";
 const API_URL = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1';
 let page = 1
 
-
-// shud this be const? since the movies are changing?...
-
-
  function moviePage(pageNum) {
 
   const options = {
@@ -16,7 +12,7 @@ let page = 1
     }
   };
   
-  fetch('https://api.themoviedb.org/3/discover/movie?api_key=4648d8f1dd1952103b5b11a07e047f65&page=' + page, options)
+  fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=4648d8f1dd1952103b5b11a07e047f65&page=' + page, options)
     .then(response => response.json())
     // .then(response => response.results.forEach(generateCards(response.results)))
     .then(response => {
@@ -42,20 +38,17 @@ let page = 1
 }
 moviePage(page);
 
-// fetch(`https://api.themoviedb.org/3/discover/movie?api_key=4026d59afea2b4fa4ab32088708c56c1&page=${page}`).then((response) => response.json()).then((data) => {
-//     console.log(data);
-//     for (let i = 0; i < data.results.length; i++){
-//         movieContainer.appendChild(generateCards(data.results[i])) ;
-//     }
-//     })
 
-
-
+let searchBar = document.getElementById('search')
 
 function getSearchPage(event){
+  page = 0
+
   event.preventDefault();
-  let searchBar = document.getElementById('search')
   let searchVal = searchBar.value;
+
+  let newMovieContainer = document.getElementById('containerMovie');
+  newMovieContainer.innerHTML = "";
 
   const options = {
     method: 'GET',
@@ -65,7 +58,7 @@ function getSearchPage(event){
     }
   };
 
-  fetch('https://api.themoviedb.org/3/search/movie?query=' + searchVal + '&include_adult=false&language=en-US&page=' + page, options)
+  fetch(`https://api.themoviedb.org/3/search/movie?${apiKey}&query=` + searchVal + '&include_adult=false&language=en-US&page=' + page, options)
     .then(response => response.json())
     .then(response => {
       for (let i = 0; i < response.results.length; i++){
@@ -126,11 +119,29 @@ function generateCards(movieObject) {
 window.onload = function() {
 
     let searchButt = document.getElementById('submitButton').addEventListener('click', getSearchPage)
-    moviePage(page)
+    // moviePage(page)
 }
 
 function loadMore() {
-moviePage(page++)
+  page++
+// moviePage(page++)
+   if (searchBar.value) {
+    // getSearchPage()
+
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=` + searchBar.value + '&include_adult=false&language=en-US&page=' + page)
+    .then(response => response.json())
+    .then(response => {
+      for (let i = 0; i < response.results.length; i++){
+        (generateCards(response.results[i]))
+      }
+    })
+    .catch(err => console.error(err));
+
+   } else {
+    moviePage(page) 
+  }
+   
+
 }
 
 
